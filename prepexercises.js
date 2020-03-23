@@ -80,7 +80,12 @@ function fibonacci (n){
 //  multiplyBy10(4,3) => 4000
 //  multiplyBy10(5,2) => 500
 // ------------------------- More Practice -------------------------
-
+function multiplyBy10 (number, n){
+    if (n === 0){
+        return number;
+    }
+return 10 * multiplyBy10(number, n-1);
+}
 // 1.Modify your sum function from the Basic Requirements section to accept two parameters, start and end: sum should now compute the sum of the numbers from start to end, e.g.
 
 //  function sum(start, end) {
@@ -89,9 +94,22 @@ function fibonacci (n){
 //  sum(2, 7); // => 2 + 3 + 4 + 5 + 6 + 7 => 27
 //  sum(3, 5); // => 3 + 4 + 5 => 12
 // What happens if start is larger than end? Modify sum to check for this case and, when found, swap the start and end arguments.
+function sum (start, end){
+	if (start === end){
+		return end;
+	}
+	return start + sum(start + 1 , end);
+}
+
+
 
 // 2.Write a function product that works like sum, except it should compute the product of the numbers from start to end.
-
+function product(start, end){
+	if (start === end){
+		return end;
+	}
+	return start * product(start + 1, end);
+}
 // Refactor your sum function from earlier to be implemented in terms of product.
 
 // 3.Let's pretend that JavaScript does not have the addition operator + -- instead, it comes with two functions called inc and dec that perform increment and decrement respectively:
@@ -105,11 +123,39 @@ function fibonacci (n){
 //  }
 // Your task is to write a function called add that takes two numbers as parameters, x and y, and adds them together.
 //  The catch is that you can only use inc and dec to accomplish this.
+function inc(x) {
+  return x + 1;
+}
+function dec(x) {
+  return x - 1;
+}
+
+function add(x,y){
+if (y === 0){
+	return x;
+}
+return add(inc(x), dec (y));
+}
 
 // 4.Write a function called isEven that, given a number n as a parameter, returns true if that number is even, and false otherwise; however, you need to do this without using the % operator
-
+function isEven(n){
+	if (n % 2 ===0){
+		return true;
+	}
+	return false;
+}
 // 5.Write a function called multiply that accepts two numbers as parameters, and multiplies them together -- but without using the * operator; instead, you'll need to use repeated addition.
-
+function multiply(x, y){
+	if (y > x){
+		var bag = y;
+		y = x;
+		x= hold;
+	}
+		if (y === 0){
+		return 0;
+	}
+	return x + multiply(x, y-1);
+}
 // 6.Write a JavaScript program to get the integers in range (x, y)
 
 //  range(1,9)   => '2, 3, 4, 5, 6, 7, 8'
