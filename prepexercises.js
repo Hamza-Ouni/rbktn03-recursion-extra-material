@@ -162,6 +162,16 @@ function multiply(x, y){
 //  range(21,33) => '22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32'
 // Read about Increment and Decrement operators in JS
 // ------------------------- Advanced -------------------------
+function range(x,y){
+	if(x>y){
+		var bag = x;
+		x = y;
+		y= bag;
+	}
+
+	if (x === y  - 2)
+		return y - 1;
+return  inc(x) + " , " + range(inc(x),y);
 
 // 1.By now you should have worked with the length property of strings, e.g. 'hello'.length. Your task is to write a function called stringLength that accepts a string as a parameter and computes the length of that string; however, as you may have guessed, you are not allowed to use the length property of the string! Instead, you'll need to make use of the string method called slice. To get an idea of how slice works, try the following at a console:
 
@@ -175,6 +185,16 @@ function multiply(x, y){
 //  //  | | | | |
 //  //  0 1 2 3 4
 //  The 'h' character has index (position) 0 in the string 'hello', 'e' has index 1, 'l' has index 2, etc.
+function stringLength(string){
+    var count =0;
+    if (string = ""){
+    	return 0;
+    }
+   stringLength(string).slice(count);
+    count = count + 1;
+}
+return count;
+
 
 // 2.The 'modulo' operator (%) computes the remainder after dividing its left operand by its right one, e.g.
 
