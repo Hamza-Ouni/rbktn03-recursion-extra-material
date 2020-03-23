@@ -9,6 +9,13 @@
 //  sum(4); // => 4 + 3 + 2 + 1 + 0 => 10
 //  sum(5); // => 5 + 4 + 3 + 2 + 1 + 0 => 15
 // HINT: We can rephrase 'the sum of n' as 'n plus the sum of n - 1'.
+  function sum(n){
+	   if (n === 1) {
+		 return 1;
+		}
+	return n + sum (n - 1)
+  }
+
 
 // 2.Factorial of n: The factorial of n is the product of all the integers preceding n, starting with 1, e.g.
 
@@ -19,6 +26,13 @@
 //  factorial(4); // => 4 * 3 * 2 * 1 => 24
 //  factorial(5); // => 5 * 4 * 3 * 2 * 1 => 120
 // Implement the factorial function by observing that the 'factorial of n' can be rephrased as 'n times the factorial of n - 1'.
+function factorial (n){
+	if (n === 1 || n === 0){
+		return 1;
+	}
+	return n * factorial(n - 1);
+}
+
 
 // 3.Repeating a String n Times: Let's write a function called repeatString that takes two parameters: a string str, which is the string to be repeated, and count -- a number representing how many times the string str should be repeated, e.g.
 
@@ -33,6 +47,12 @@
 //  we can concatenate that string onto the result of repeating the string count - 1.
 //  HINT: Observe that repeatString('dog', 0) should yield the empty string, ''.
 //  What happens if you evaluate this: ' ' + 'dog'?
+function repeatString(str, count){
+	if (count === 0){
+		return "";
+	}
+	return str + repeatString(str, count - 1);
+}
 
 // 4.Compute the nth Fibonacci Number: The fibonacci numbers are represented by the following sequence:
 
@@ -46,6 +66,13 @@
 //  fib(1) is 1
 //  fib(n) is fib(n - 1) + fib(n - 2)
 //  Write a function called fib that accepts a number n as a parameter and computes the nth fibonacci number using the above rules.
+function fibonacci (n){
+	if (n === 0 || n === 1){
+		return 1;
+	}
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
 
 // 5.Write function that multiply the number by 10 n time
 
