@@ -185,16 +185,20 @@ return  inc(x) + " , " + range(inc(x),y);
 //  //  | | | | |
 //  //  0 1 2 3 4
 //  The 'h' character has index (position) 0 in the string 'hello', 'e' has index 1, 'l' has index 2, etc.
-function stringLength(string){
-    var count =0;
-    if (string = ""){
-    	return 0;
-    }
-   stringLength(string).slice(count);
-    count = count + 1;
-}
-return count;
+function stringLength(string,a){
 
+     if (string!=='')
+    { 
+    	
+       string=string.slice(1); 
+        a++;
+     return stringLength(string,a);
+    
+    }
+
+    return a;
+
+}
 
 // 2.The 'modulo' operator (%) computes the remainder after dividing its left operand by its right one, e.g.
 
@@ -202,16 +206,43 @@ return count;
 //  8 % 10; // => 8
 //  7 % 5; // => 2
 // Write a function called modulo that works like the % operator, but without using it.
-
+function modulo(a, b){
+	if (b === 0){
+		return "error : we cannot divide by 0";
+	}
+	if (a < b) {
+		return a;
+	}
+	if (a > b){
+		return modulo(a - b, b);
+	}
+}
 // 3.Write a function called countChars that accepts two parameters: a string and a character. This function should return a number representing the number of times that the character appears in string. To access the first element of a string, you can use the following syntax:
 
 //  // access the element at index 0
 //  'hello'[0]; // => 'h'
 //  'dog'[0]; // => 'd'
 // HINT: You'll also need to make use of the slice method as shown above in the exercise on computing the length of a string.
-
+function countChars(string, character){
+debugger;
+    if (string.length === 0){
+        return 0;
+    }
+    if (string[0]=== character){
+        return 1 + countChars(string.slice(1), character);
+    }
+        return countChars(string.slice(1), character);
+}
 // 4. Implement a function called indexOf that accepts two parameters: a string and a character, and returns the first index of character in the string. You'll need to make use of the techniques for accessing the first element of a string and the rest of the string (slice) as before.
-
+function indexOf(string, character){
+	if (string.length === 0){
+		return 0;
+	}
+	else if (string[0] === character){
+		return 0;
+	}
+	return 1 + indexOf(string.slice(1), character);
+}
 // 5.The power function in the lecture works, but can be made considerably faster through a method known as successive squaring. To get an idea of how this works, observe that:
 
 // Modify the power function to take advantage of this technique.
@@ -223,6 +254,13 @@ return count;
 //  'noitseuq ysae na eb dluoc siht'.
 
 // 7.Find the greatest common divisor of two numbers.
+function greatestCommonDivisor(a, b) {
+	if (b ===0 ) {				
+		return a;
+	}
+
+	return greatestCommonDivisor(b, a % b);	
+}
 
 // 8.Find the lowest common multiple of two numbers. Assume that the two numbers are greater than or equal to 2.
 
